@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
-import { FC } from "react";
+import React, { FC } from "react";
+
 import { Button } from "../Button";
 
 interface PaginationProps {
-  currentPage?: number;
+  currentPage: number;
 }
 
-export const Pagination: FC<PaginationProps> = ({ currentPage = 1 }) => {
+export const Pagination: FC<PaginationProps> = ({ currentPage }) => {
   const router = useRouter();
   return (
     <div className=" w-screen flex justify-center mb-4">
@@ -17,7 +18,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage = 1 }) => {
             light
             small
             onClick={() =>
-              router.push(`/?page=${currentPage <= 10 ? currentPage - 1 : 9}`)
+              router.push(`/?page=${currentPage > 10 ? 9 : currentPage - 1}`)
             }
           />
         )}
@@ -41,7 +42,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage = 1 }) => {
             light
             small
             onClick={() =>
-              router.push(`/?page=${currentPage >= 1 ? currentPage + 1 : 2}`)
+              router.push(`/?page=${currentPage < 1 ? 2 : currentPage + 1}`)
             }
           />
         )}

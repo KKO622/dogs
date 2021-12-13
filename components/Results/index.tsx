@@ -1,4 +1,5 @@
-import { FC } from "react";
+import React, { FC } from "react";
+
 import { DogImageData } from "../../generated/schemaTypes";
 import { Card } from "../Card";
 

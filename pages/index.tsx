@@ -1,6 +1,7 @@
 import { GetServerSidePropsResult } from "next";
 import Head from "next/head";
-import { FC } from "react";
+import React, { FC } from "react";
+
 import { Pagination } from "../components/Pagination";
 import { Results } from "../components/Results";
 import { DOG_API_KEY, DOG_API_URL } from "../environment";
@@ -34,8 +35,10 @@ export async function getServerSideProps(
   context
 ): Promise<GetServerSidePropsResult<Props>> {
   const page = context.query.page ?? 1;
+  const pageParameter = page < 0 ? 0 : page > 9 ? 9 : page - 1;
+
   const request = await fetch(
-    `${DOG_API_URL}?limit=10&page=${page}&order=Asc`,
+    `${DOG_API_URL}?limit=10&page=${pageParameter}&order=Asc`,
     {
       headers: new Headers({
         "X-API-KEY": DOG_API_KEY,

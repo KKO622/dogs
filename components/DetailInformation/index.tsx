@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 export enum DetailInformationAttributes {
   Temperament = "Temperament",
@@ -7,6 +7,7 @@ export enum DetailInformationAttributes {
   Height = "Height (metric)",
   Weight = "Weight (metric)",
 }
+
 interface DetailInformationProps {
   attribute: DetailInformationAttributes;
   description?: string;

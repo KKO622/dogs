@@ -2,14 +2,14 @@ import { GetServerSidePropsResult } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import React, { FC } from "react";
+
 import { Button } from "../../components/Button";
 import {
   DetailInformation,
   DetailInformationAttributes,
 } from "../../components/DetailInformation";
 import { DOG_API_KEY, DOG_API_URL } from "../../environment";
-
 import { Breed } from "../../generated/schemaTypes";
 
 interface DetailProps {
